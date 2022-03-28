@@ -1,0 +1,33 @@
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > span {
+    display: inline-block; /* Is this necessary?*/ /* Since you already set the loader to flex, this is not necessary anymore, because every flex-items inside of loader is gonna be "block" instead of "inline" element, and you can then style them with width and height, and if you take this and display:flex in .loader away, you will not see your flex-items, that's cus you can give "span"(inline element) height.*/
+    background: purple;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    margin: 0 8px;
+    transform: translate3d(0);
+    animation: bounce 0.6s infinite alternate;
+}
+
+.loader > span:nth-child(2) {
+    background-color: palevioletred;
+    animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    to {
+        width: 16px;
+        height: 16px;
+        transform: translate3d(0, -16px, 0);
+    }
+}
